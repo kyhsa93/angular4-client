@@ -9,14 +9,27 @@ import { AlertsModule } from 'angular-alert-module';
 
 import { LoginComponent } from './pages/login/index';
 import { HomeComponent } from './pages/home/index';
+import { MyPageComponent } from './pages/my-page/index';
+import { ClientComponent } from './pages/client/index';
+import { ServerComponent } from './pages/server/index';
+import { DataBaseComponent } from './pages/database/index';
 import { PageNotFoundComponent } from './pages/page-not-found/index';
+
+import { NavigationComponent } from './pages/navigation/index';
+import { SideMenuComponent } from './pages/side-menu/index';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    PageNotFoundComponent
+    MyPageComponent,
+    ClientComponent,
+    ServerComponent,
+    DataBaseComponent,
+    PageNotFoundComponent,
+    NavigationComponent,
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +38,9 @@ import { PageNotFoundComponent } from './pages/page-not-found/index';
     AppRoutingModule,
     AlertsModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    SideMenuComponent
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {};

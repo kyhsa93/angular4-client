@@ -3,14 +3,14 @@ import { Router } from '@angular/router';
 import { AlertsService } from 'angular-alert-module';
 
 @Component({
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.css']
+    templateUrl: './my-page.component.html',
+    styleUrls: ['./my-page.component.css']
 })
 
-export class HomeComponent implements OnInit {
+export class MyPageComponent implements OnInit{
     constructor (
         private router: Router,
-        private alerts: AlertsService
+        private alerts:AlertsService
     ) {}
 
     /**

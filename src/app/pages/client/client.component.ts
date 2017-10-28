@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertsService } from 'angular-alert-module';
 
 @Component({
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.css']
+    templateUrl: './client.component.html',
+    styleUrls: ['./client.component.css']
 })
 
-export class HomeComponent implements OnInit {
+export class ClientComponent {
     constructor (
         private router: Router,
         private alerts: AlertsService
