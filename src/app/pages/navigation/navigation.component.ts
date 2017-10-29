@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SideMenuComponent } from '../side-menu/index';
+import { AlertsService } from 'angular-alert-module';
 
 @Component({
     selector: 'navigation',
@@ -12,7 +13,8 @@ export class NavigationComponent {
 
     constructor (
         private router: Router,
-        private sideMenu: SideMenuComponent
+        private sideMenu: SideMenuComponent,
+        private alerts: AlertsService
     ) {}
 
     /**
@@ -63,5 +65,6 @@ export class NavigationComponent {
     logout() {
         sessionStorage.clear();
         this.router.navigate(['/login']);
+        this.alerts.setMessage('Logout success','success');
     }
 };

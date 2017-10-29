@@ -47,4 +47,8 @@ export class LoginComponent implements OnInit {
                 console.log('Login error: ', error);
             });
     }
+
+    signUp () {
+        this.router.navigate(['/sign-up']);
+    }
 };
