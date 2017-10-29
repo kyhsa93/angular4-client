@@ -1,0 +1,10 @@
+.side-menu {
+    float: left; 
+    width: 20%;
+}
+.server-page {
+    background-color: yellow; 
+    float: right; 
+    height: 90vh;
+    width: 80%;
+}
