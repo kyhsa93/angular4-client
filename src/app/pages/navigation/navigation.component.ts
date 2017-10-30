@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { SideMenuComponent } from '../side-menu/index';
 import { AlertsService } from 'angular-alert-module';
 
 @Component({
@@ -13,16 +12,8 @@ export class NavigationComponent {
 
     constructor (
         private router: Router,
-        private sideMenu: SideMenuComponent,
         private alerts: AlertsService
     ) {}
-
-    /**
-     * @type {function} control side menu
-     */
-    showSideMenu () {
-        this.sideMenu.showSideMenu();
-    }
 
     /**
      * @type {function} move to client page

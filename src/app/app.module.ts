@@ -14,6 +14,7 @@ import { ClientComponent } from './pages/client/index';
 import { ServerComponent } from './pages/server/index';
 import { DataBaseComponent } from './pages/database/index';
 import { SignUpComponent } from './pages/sign-up/index';
+import { WritePostComponent } from './pages/write-post/index';
 import { PageNotFoundComponent } from './pages/page-not-found/index';
 
 import { NavigationComponent } from './pages/navigation/index';
@@ -31,7 +32,8 @@ import { SideMenuComponent } from './pages/side-menu/index';
     PageNotFoundComponent,
     NavigationComponent,
     SideMenuComponent,
-    SignUpComponent
+    SignUpComponent,
+    WritePostComponent
   ],
   imports: [
     BrowserModule,

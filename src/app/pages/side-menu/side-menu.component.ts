@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'side-menu',
@@ -7,18 +7,12 @@ import { Component } from '@angular/core';
 })
 
 export class SideMenuComponent {
-
-    public showSideMenuFlag: boolean = false;
+    @Input() postList;
+    @Output() selected = new EventEmitter();
 
     constructor () {}
 
-    showSideMenu () {
-        // this.showSideMenuFlag = true ? false : true;
-        if (this.showSideMenuFlag) {
-                this.showSideMenuFlag = false;
-        } else {
-            this.showSideMenuFlag = true;
-        }
-        console.log('11', this.showSideMenuFlag);
+    selectPosting (index: number) {
+        this.selected.emit(index);
     }
 };

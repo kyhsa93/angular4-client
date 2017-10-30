@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
 import { AlertsService } from 'angular-alert-module';
 

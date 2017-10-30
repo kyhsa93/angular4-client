@@ -8,6 +8,7 @@ import { MyPageComponent } from './pages/my-page/index';
 import { ClientComponent } from './pages/client/index';
 import { ServerComponent } from './pages/server/index';
 import { DataBaseComponent } from './pages/database/index';
+import { WritePostComponent } from './pages/write-post/index';
 import { PageNotFoundComponent } from './pages/page-not-found/index';
 
 const appRoutes: Routes = [
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
     { path: 'client', component: ClientComponent },
     { path: 'server', component: ServerComponent },
     { path: 'database', component: DataBaseComponent },
+    { path: 'write-post/:page', component: WritePostComponent },
     { path: '',   redirectTo: 'login', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
   ];

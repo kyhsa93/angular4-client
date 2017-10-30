@@ -1,7 +1,25 @@
 <div>
   <navigation></navigation>
-  <side-menu class="side-menu"></side-menu>
+  <side-menu class="side-menu"
+    [postList]="postList"
+    (selected)="selectPosting($event)">
+  </side-menu>
   <div class="database-page">
     database
+    <button (click)="writePost()">
+      게시물 작성
+    </button>
+    <div>
+      <div style="float: left;">
+        {{latestTitle}}
+      </div>
+      <div style="float: right;">
+        {{latestCategory}}
+      </div>
+    </div>
+    <br>
+    <div>
+      {{latestContent}}
+    </div>
   </div>
 </div>

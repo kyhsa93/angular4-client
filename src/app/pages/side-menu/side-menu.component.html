@@ -1,9 +1,21 @@
 <div class="side-menu-page">
-  <div>
-    side-menu1
-  </div>
-  <div>
-    side-menu2
-  </div>
-  {{showSideMenuFlag}}
+  <table>
+    <tr>
+      <th style="text-align: center;">
+        게시물 번호
+      </th>
+      <th style="text-align: center;">
+        제목
+      </th>
+    </tr>
+    <tr *ngFor="let post of postList; let index = index"
+      (click)="selectPosting(index)">
+      <td style="text-align: center;">
+        {{post.seq}}
+      </td>
+      <td style="text-align: center;">
+        {{post.title}}
+      </td>
+    </tr>
+  </table>
 </div>

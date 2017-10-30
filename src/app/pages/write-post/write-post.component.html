@@ -1,0 +1,27 @@
+<div>
+  <navigation></navigation>
+  <form>
+    <input
+      type="text"
+      placeholder="Please insert title"
+      name="text"
+      [(ngModel)]="title">
+    <select name="category" [(ngModel)]="category">
+      <option value="client">
+        client
+      </option>
+      <option value="server">
+        server
+      </option>
+      <option value="database">
+        database
+      </option>
+    </select>
+    <div>
+      <textarea name="content" [(ngModel)]="content" style="height: 50vh; width: 50%;">Please insert content</textarea>
+    </div>
+    <button (click)="submit()">
+      Submit
+    </button>
+  </form>
+</div>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertsService } from 'angular-alert-module';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+import { SideMenuComponent } from '../side-menu/index';
 
 @Component({
     templateUrl: './home.component.html',
@@ -8,9 +11,17 @@ import { AlertsService } from 'angular-alert-module';
 })
 
 export class HomeComponent implements OnInit {
+
+    private latestTitle: string = '';
+    private latestCategory: string = '';
+    private latestContent: string = '';
+    private postList = [];
+
     constructor (
         private router: Router,
-        private alerts: AlertsService
+        private alerts: AlertsService,
+        private http: Http,
+        private sideMenu: SideMenuComponent
     ) {}
 
     /**
@@ -20,6 +31,28 @@ export class HomeComponent implements OnInit {
         if (!sessionStorage.getItem('id')) {
             this.alerts.setMessage('Please Login', 'error');
             this.router.navigate(['/login']);
+        } else {
+            this.http.get('http://localhost:5000/get-post-list/home').
+                map(response => {
+                    return response.json();
+                }).subscribe(data => {
+                    this.postList = data.reverse();
+                    this.latestTitle = this.postList[0].title;
+                    this.latestCategory = this.postList[0].category;
+                    this.latestContent = this.postList[0].content;
+                }, error => {
+                    this.alerts.setMessage('Can not load data list', 'error');
+                });
         }
+    }
+
+    writePost () {
+        this.router.navigate(['/write-post', 'home']);
+    }
+
+    selectPosting(index: number) {
+        this.latestTitle = this.postList[index].title;
+        this.latestContent = this.postList[index].content;
+        this.latestCategory = this.postList[index].category;
     }
 };
