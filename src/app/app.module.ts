@@ -16,35 +16,37 @@ import { DataBaseComponent } from './pages/database/index';
 import { SignUpComponent } from './pages/sign-up/index';
 import { WritePostComponent } from './pages/write-post/index';
 import { PageNotFoundComponent } from './pages/page-not-found/index';
+import { ConfirmPasswordComponent } from './pages/confirm-password/index';
 
 import { NavigationComponent } from './pages/navigation/index';
 import { SideMenuComponent } from './pages/side-menu/index';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    HomeComponent,
-    MyPageComponent,
-    ClientComponent,
-    ServerComponent,
-    DataBaseComponent,
-    PageNotFoundComponent,
-    NavigationComponent,
-    SideMenuComponent,
-    SignUpComponent,
-    WritePostComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    AppRoutingModule,
-    AlertsModule.forRoot()
-  ],
-  providers: [
-    SideMenuComponent
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        HomeComponent,
+        MyPageComponent,
+        ClientComponent,
+        ServerComponent,
+        DataBaseComponent,
+        PageNotFoundComponent,
+        NavigationComponent,
+        SideMenuComponent,
+        SignUpComponent,
+        WritePostComponent,
+        ConfirmPasswordComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        AppRoutingModule,
+        AlertsModule.forRoot()
+    ],
+    providers: [
+        SideMenuComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {};

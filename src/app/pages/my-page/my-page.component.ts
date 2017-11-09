@@ -14,6 +14,7 @@ export class MyPageComponent implements OnInit{
     private password: string = '';
     private name: string = '';
     private date: string = '';
+    private confirmed: boolean = false;
 
     constructor (
         private router: Router,
@@ -53,5 +54,13 @@ export class MyPageComponent implements OnInit{
             }, error => {
                 this.alerts.setMessage('Submit fail', 'error')
             });
+    }
+
+    confirm (flag: boolean) {
+        if (flag == true) {
+            this.confirmed = true;
+        } else {
+            this.confirmed = false;
+        }
     }
 };

@@ -1,11 +1,16 @@
 <div>
   <navigation></navigation>
   mypage
-  <table>
+  <confirm-password
+    *ngIf="!confirmed"
+    (confirmed)="confirm($event)">
+  </confirm-password>
+  <table
+    *ngIf="confirmed">
     <form>
       <tr>
         <td>
-          id : 
+          id :
         </td>
         <td>
           <input
@@ -17,7 +22,7 @@
       </tr>
       <tr>
         <td>
-          password : 
+          password :
         </td>
         <td>
           <input
@@ -28,7 +33,7 @@
       </tr>
       <tr>
         <td>
-          name : 
+          name :
         </td>
         <td>
           <input
@@ -40,7 +45,7 @@
       </tr>
       <tr>
         <td>
-          date : 
+          date :
         </td>
         <td>
           <input
