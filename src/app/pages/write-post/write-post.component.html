@@ -1,12 +1,13 @@
-<div>
+<div class="write-post-page">
   <navigation></navigation>
-  <form>
+  <form class="write-post-form">
     <input
       type="text"
       placeholder="Please insert title"
       name="text"
-      [(ngModel)]="title">
-    <select name="category" [(ngModel)]="category">
+      [(ngModel)]="title"
+      class="write-post-input">
+    <select name="category" [(ngModel)]="category" class="write-post-select">
       <option value="client">
         client
       </option>
@@ -18,9 +19,14 @@
       </option>
     </select>
     <div>
-      <textarea name="content" [(ngModel)]="content" style="height: 50vh; width: 50%;">Please insert content</textarea>
+      <textarea
+        name="content"
+        [(ngModel)]="content"
+        style="height: 50vh; width: 100%; margin: 3% 0;">
+        Please insert content
+      </textarea>
     </div>
-    <button (click)="submit()">
+    <button (click)="submit()" class="write-post-button">
       Submit
     </button>
   </form>

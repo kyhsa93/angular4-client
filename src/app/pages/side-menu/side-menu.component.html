@@ -1,19 +1,11 @@
 <div class="side-menu-page">
-  <table>
-    <tr>
-      <th style="text-align: center;">
-        게시물 번호
-      </th>
-      <th style="text-align: center;">
-        제목
-      </th>
-    </tr>
+  <table style="border-collapse: collapse; border-right: 1px solid black; width: 100%;">
     <tr *ngFor="let post of postList; let index = index"
       (click)="selectPosting(index)">
-      <td style="text-align: center;">
+      <td style="border-bottom: 1px solid black; text-align: center;">
         {{post.seq}}
       </td>
-      <td style="text-align: center;">
+      <td style="border-bottom: 1px solid black; text-align: center;">
         {{post.title}}
       </td>
     </tr>

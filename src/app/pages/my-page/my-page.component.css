@@ -1,0 +1,19 @@
+.my-page-page {
+  height: 100%;
+  width: 100%
+}
+
+.my-page-form {
+  margin: 10% 40%;
+}
+
+.my-page-input {
+  height: 5vh;
+  width: 98%;
+  padding: 0;
+}
+
+.my-page-button {
+  height: 5vh;
+  width: 99%;
+}

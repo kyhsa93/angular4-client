@@ -5,20 +5,21 @@
     (selected)="selectPosting($event)">
   </side-menu>
   <div class="home-page">
-    home
     <button (click)="writePost()">
       게시물 작성
     </button>
     <div>
-      <div style="float: left;">
-        {{latestTitle}}
+      <div style="text-align: center;">
+        <h1>
+          {{latestTitle}}
+        </h1>
       </div>
-      <div style="float: right;">
+      <div style="float: right; margin-right: 10%">
         {{latestCategory}}
       </div>
     </div>
     <br>
-    <div>
+    <div style="margin: 5% 10% 10% 10%;">
       {{latestContent}}
     </div>
   </div>

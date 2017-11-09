@@ -1,0 +1,19 @@
+.login-page {
+  height: 100%;
+  width: 100%
+}
+
+.login-form {
+  margin: 20% 40%;
+}
+
+.login-input {
+  height: 5vh;
+  width: 98%;
+  padding: 0;
+}
+
+.login-button {
+  height: 5vh;
+  width: 49%;
+}

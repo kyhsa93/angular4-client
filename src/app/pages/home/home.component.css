@@ -1,10 +1,9 @@
 .home-page {
-    background-color: green;
     float: right;
     height: 90vh;
     width: 80%;
 }
 .side-menu {
-    float: left; 
+    float: left;
     width: 20%;
 }

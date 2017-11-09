@@ -1,10 +1,9 @@
 .database-page {
-    background-color: rgb(236, 19, 215);
-    float: right;
-    height: 90vh;
-    width: 80%;
+  float: right;
+  height: 90vh;
+  width: 80%;
 }
 .side-menu {
-    float: left; 
-    width: 20%;
+  float: left;
+  width: 20%;
 }

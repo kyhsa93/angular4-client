@@ -1,0 +1,26 @@
+.write-post-page {
+  height: 100%;
+  width: 100%
+}
+
+.write-post-form {
+  margin: 5% 20%;
+}
+
+.write-post-input {
+  height: 5vh;
+  width: 63%;
+  padding: 0;
+}
+
+.write-post-select {
+  height: 5vh;
+  width: 30%;
+  margin: 0 3%;
+}
+
+.write-post-button {
+  float: right;
+  height: 5vh;
+  width: 20%;
+}

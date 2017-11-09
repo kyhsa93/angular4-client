@@ -1,22 +1,24 @@
-<div>
-  sign-up
-  <form>
+<div class="sign-up-page">
+  <form class="sign-up-form">
     <input
       name="id"
       type="text"
       placeholder="Please insert your ID"
-      [(ngModel)]="id">
+      [(ngModel)]="id"
+      class="sign-up-input">
     <input
       name="password"
       type="password"
       placeholder="Please insert your Password"
-      [(ngModel)]="password">
+      [(ngModel)]="password"
+      class="sign-up-input">
     <input
       name="name"
       type="text"
       placeholder="Please insert your Name"
-      [(ngModel)]="name">
-    <button (click)="signUp()">
+      [(ngModel)]="name"
+      class="sign-up-input">
+    <button (click)="signUp()" class="sign-up-button">
       Sign Up
     </button>
   </form>

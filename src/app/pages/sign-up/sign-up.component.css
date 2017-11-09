@@ -1,0 +1,19 @@
+.sign-up-page {
+  height: 100%;
+  width: 100%
+}
+
+.sign-up-form {
+  margin: 20% 40%;
+}
+
+.sign-up-input {
+  height: 5vh;
+  width: 98%;
+  padding: 0;
+}
+
+.sign-up-button {
+  height: 5vh;
+  width: 99%;
+}

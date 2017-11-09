@@ -1,63 +1,39 @@
-<div>
+<div class="my-page-page">
   <navigation></navigation>
-  mypage
   <confirm-password
     *ngIf="!confirmed"
     (confirmed)="confirm($event)">
   </confirm-password>
-  <table
-    *ngIf="confirmed">
-    <form>
-      <tr>
-        <td>
-          id :
-        </td>
-        <td>
-          <input
-            type="text"
-            name="id"
-            readonly
-            [(ngModel)]="id">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          password :
-        </td>
-        <td>
-          <input
-            type="password"
-            name="password"
-            [(ngModel)]="password">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          name :
-        </td>
-        <td>
-          <input
-            type="text"
-            name="name"
-            readonly
-            [(ngModel)]="name">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          date :
-        </td>
-        <td>
-          <input
-            type="text"
-            name="date"
-            readonly
-            [(ngModel)]="date">
-        </td>
-      </tr>
-      <button (click)="submit()">
-        Submit
-      </button>
-    </form>
-  </table>
+    <form *ngIf="confirmed" class="my-page-form">
+      ID
+      <input
+        type="text"
+        name="id"
+        readonly
+        [(ngModel)]="id"
+        class="my-page-input">
+        Password
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        class="my-page-input">
+        Name
+      <input
+        type="text"
+        name="name"
+        readonly
+        [(ngModel)]="name"
+        class="my-page-input">
+        Sign Up Date
+      <input
+        type="text"
+        name="date"
+        readonly
+        [(ngModel)]="date"
+        class="my-page-input">
+    <button (click)="submit()" class="my-page-button">
+      Submit
+    </button>
+  </form>
 </div>
