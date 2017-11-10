@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertsService } from 'angular-alert-module';
 import { Http } from '@angular/http';
 
 @Component({
@@ -14,10 +13,10 @@ export class WritePostComponent implements OnInit{
     private title: string = '';
     private category: string = '';
     private content: string = '';
+    private saveError: boolean = false;
 
     constructor (
         private route: ActivatedRoute,
-        private alerts: AlertsService,
         private http: Http,
         private router: Router
     ) {}
@@ -30,7 +29,7 @@ export class WritePostComponent implements OnInit{
 
     submit () {
         if (!this.category) {
-            this.alerts.setMessage('게시물 카테고리를 선택해주세요.', 'error');
+          //카테고리를 선택해 주세요
         } else {
             this
             var postData = [
@@ -40,10 +39,11 @@ export class WritePostComponent implements OnInit{
             ];
             this.http.post('http://localhost:5000/write-post', postData).
                 subscribe(response => {
-                    this.alerts.setMessage('저장되었습니다.', 'success');
+                    this.saveError = false;
                     this.router.navigate(['/' + this.category]);
                 }, error => {
-                    this.alerts.setMessage('저장하지 못했습니다.', 'error');
+                    this.saveError = true;
+                    console.log('write post component ngOnInit', error);
                 });
         }
     }

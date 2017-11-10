@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AlertsModule } from 'angular-alert-module';
 
 import { LoginComponent } from './pages/login/index';
 import { HomeComponent } from './pages/home/index';
@@ -41,8 +40,7 @@ import { SideMenuComponent } from './pages/side-menu/index';
         BrowserModule,
         FormsModule,
         HttpModule,
-        AppRoutingModule,
-        AlertsModule.forRoot()
+        AppRoutingModule
     ],
     providers: [
         SideMenuComponent

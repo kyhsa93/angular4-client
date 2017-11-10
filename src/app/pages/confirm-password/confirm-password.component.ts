@@ -1,6 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Http } from '@angular/http';
-import { AlertsService } from 'angular-alert-module';
 
 @Component({
     selector: 'confirm-password',
@@ -11,10 +10,10 @@ import { AlertsService } from 'angular-alert-module';
 export class ConfirmPasswordComponent {
     @Output() confirmed = new EventEmitter();
     private password: string ='';
+    private confirmError: boolean = false;
 
     constructor (
         private http: Http,
-        private alerts: AlertsService
     ) {}
 
     confirm () {
@@ -25,9 +24,10 @@ export class ConfirmPasswordComponent {
       this.http.post('http://localhost:5000/login', loginData).
           subscribe(response => {
               this.confirmed.emit(true);
+              this.confirmError = false;
           }, error => {
-              this.alerts.setMessage('비밀번호를 확인해 주세요.', 'error');
               this.confirmed.emit(false);
+              this.confirmError = true;
               console.log('password confirm error: ', error);
           });
     }

@@ -35,5 +35,8 @@
     <button (click)="submit()" class="my-page-button">
       Submit
     </button>
+    <a *ngIf="saveError" style="color: red; margin-left: 30%;">
+      저장하지 못했습니다.
+    </a>
   </form>
 </div>

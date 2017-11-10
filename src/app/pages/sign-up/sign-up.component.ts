@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
-import { AlertsService } from 'angular-alert-module';
 
 @Component({
     templateUrl: './sign-up.component.html',
@@ -13,11 +12,11 @@ export class SignUpComponent {
     private id: string = '';
     private password: string = '';
     private name: string = '';
+    private signUpError: boolean = false;
 
     constructor (
         private http: Http,
-        private router: Router,
-        private alerts: AlertsService
+        private router: Router
     ) {}
 
     signUp () {
@@ -28,10 +27,11 @@ export class SignUpComponent {
         };
         this.http.post('http://localhost:5000/sign-up', signUpData).
             subscribe(response => {
-                this.alerts.setMessage('회원가입이 되었습니다.', 'success');
+                this.signUpError = false;
                 this.router.navigate(['/login']);
             }, error => {
-                this.alerts.setMessage('회원가입에 실패했습니다.', 'error');
+                this.signUpError = true;
+                console.log('sign up component ngOnInit', error);
             });
     }
 };

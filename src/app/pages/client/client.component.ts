@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertsService } from 'angular-alert-module';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { SideMenuComponent } from '../side-menu/index';
@@ -20,7 +19,6 @@ export class ClientComponent {
 
     constructor (
         private router: Router,
-        private alerts: AlertsService,
         private http: Http,
         private sideMenu: SideMenuComponent
     ) {}
@@ -41,7 +39,7 @@ export class ClientComponent {
                 this.latestCategory = this.postList[0].category;
                 this.latestContent = this.postList[0].content;
             }, error => {
-                this.alerts.setMessage('데이터 로드에 실패했습니다.', 'error');
+                console.log('client component ngOnInit', error);
             });
     }
 

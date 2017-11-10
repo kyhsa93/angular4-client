@@ -26,6 +26,9 @@
         Please insert content
       </textarea>
     </div>
+    <a *ngIf="saveError" style="color: red; margin-left: 60%;">
+      게시물을 저장하지 못했습니다.
+    </a>
     <button (click)="submit()" class="write-post-button">
       Submit
     </button>

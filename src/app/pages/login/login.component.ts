@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
-import { AlertsService } from 'angular-alert-module';
 
 @Component({
     templateUrl: './login.component.html',
@@ -12,11 +11,11 @@ export class LoginComponent implements OnInit {
 
     private loginId: string = '';
     private loginPassword: string = '';
+    private loginError: boolean = false;
 
     constructor (
         private http: Http,
         private router: Router,
-        private alerts: AlertsService
     ) {}
 
     /**
@@ -38,10 +37,11 @@ export class LoginComponent implements OnInit {
         };
         this.http.post('http://localhost:5000/login', loginData).
             subscribe(response => {
+                this.loginError = false;
                 sessionStorage.setItem('id', this.loginId);
                 this.router.navigate(['/home']);
             }, error => {
-                this.alerts.setMessage('로그인에 실패했습니다.', 'error');
+                this.loginError = true;
                 console.log('Login error: ', error);
             });
     }

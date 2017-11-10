@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertsService } from 'angular-alert-module';
 import { Http } from '@angular/http';
 
 @Component({
@@ -15,10 +14,10 @@ export class MyPageComponent implements OnInit{
     private name: string = '';
     private date: string = '';
     private confirmed: boolean = false;
+    private saveError: boolean = false;
 
     constructor (
         private router: Router,
-        private alerts: AlertsService,
         private http: Http
     ) {}
 
@@ -27,7 +26,6 @@ export class MyPageComponent implements OnInit{
      */
     ngOnInit () {
         if (!sessionStorage.getItem('id')) {
-            this.alerts.setMessage('로그인이 필요합니다.', 'error');
             this.router.navigate(['/home']);
             return;
         }
@@ -38,7 +36,7 @@ export class MyPageComponent implements OnInit{
                 this.name = data.json()[0].name;
                 this.date = data.json()[0].sign_up_date;
             }, error => {
-                this.alerts.setMessage('데이터 로드에 실패했습니다.', 'error');
+                console.log('my page component ngOnInit', error);
             })
     }
 
@@ -50,9 +48,10 @@ export class MyPageComponent implements OnInit{
 
         this.http.post('http://localhost:5000/update-sign-up-data', modifiedData).
             subscribe(response => {
-                this.alerts.setMessage('저장되었습니다.', 'success');
+                this.saveError = false;
             }, error => {
-                this.alerts.setMessage('저장하지 못했습니다.', 'error')
+                this.saveError = true;
+                console.log('my page component submit', error);
             });
     }
 

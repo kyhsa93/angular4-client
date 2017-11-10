@@ -18,5 +18,8 @@
     <button (click)="signUp()" class="login-button">
       Sign up
     </button>
+    <a *ngIf="loginError" style="color: red; margin-left: 30%;">
+      로그인에 실패했습니다.
+    </a>
   </form>
 </div>
