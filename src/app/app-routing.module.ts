@@ -20,7 +20,7 @@ const appRoutes: Routes = [
     { path: 'server', component: ServerComponent },
     { path: 'database', component: DataBaseComponent },
     { path: 'write-post/:page', component: WritePostComponent },
-    { path: '',   redirectTo: 'login', pathMatch: 'full' },
+    { path: '',   redirectTo: 'home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
   ];
 

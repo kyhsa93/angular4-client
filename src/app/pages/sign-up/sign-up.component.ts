@@ -28,10 +28,10 @@ export class SignUpComponent {
         };
         this.http.post('http://localhost:5000/sign-up', signUpData).
             subscribe(response => {
-                this.alerts.setMessage('Sign Up Success', 'success');
+                this.alerts.setMessage('회원가입이 되었습니다.', 'success');
                 this.router.navigate(['/login']);
             }, error => {
-                this.alerts.setMessage('Sign Up Error', 'error');
+                this.alerts.setMessage('회원가입에 실패했습니다.', 'error');
             });
     }
 };

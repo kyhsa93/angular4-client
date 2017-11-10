@@ -27,8 +27,8 @@ export class MyPageComponent implements OnInit{
      */
     ngOnInit () {
         if (!sessionStorage.getItem('id')) {
-            this.alerts.setMessage('Please Login', 'error');
-            this.router.navigate(['/login']);
+            this.alerts.setMessage('로그인이 필요합니다.', 'error');
+            this.router.navigate(['/home']);
             return;
         }
         this.http.get('http://localhost:5000/my-page-data/' + sessionStorage.getItem('id')).
@@ -38,7 +38,7 @@ export class MyPageComponent implements OnInit{
                 this.name = data.json()[0].name;
                 this.date = data.json()[0].sign_up_date;
             }, error => {
-                this.alerts.setMessage('Fail to load data', 'error');
+                this.alerts.setMessage('데이터 로드에 실패했습니다.', 'error');
             })
     }
 
@@ -50,9 +50,9 @@ export class MyPageComponent implements OnInit{
 
         this.http.post('http://localhost:5000/update-sign-up-data', modifiedData).
             subscribe(response => {
-                this.alerts.setMessage('Submit success', 'success');
+                this.alerts.setMessage('저장되었습니다.', 'success');
             }, error => {
-                this.alerts.setMessage('Submit fail', 'error')
+                this.alerts.setMessage('저장하지 못했습니다.', 'error')
             });
     }
 

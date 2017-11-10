@@ -29,29 +29,28 @@ export class ClientComponent {
      * @type {function} if login data does not exists in sessionStorage navigate login page
      */
     ngOnInit () {
-        if (!sessionStorage.getItem('id')) {
-            this.alerts.setMessage('Please Login', 'error');
-            this.router.navigate(['/login']);
-        } else {
-            this.http.get('http://localhost:5000/get-post-list/client').
-                map(response => {
-                    return response.json();
-                }).subscribe(data => {
-                    data.map(item => {
-                        item.seq = this.listIndex++;
-                    });
-                    this.postList = data.reverse();
-                    this.latestTitle = this.postList[0].title;
-                    this.latestCategory = this.postList[0].category;
-                    this.latestContent = this.postList[0].content;
-                }, error => {
-                    this.alerts.setMessage('Can not load data list', 'error');
+        this.http.get('http://localhost:5000/get-post-list/client').
+            map(response => {
+                return response.json();
+            }).subscribe(data => {
+                data.map(item => {
+                    item.seq = this.listIndex++;
                 });
-        }
+                this.postList = data.reverse();
+                this.latestTitle = this.postList[0].title;
+                this.latestCategory = this.postList[0].category;
+                this.latestContent = this.postList[0].content;
+            }, error => {
+                this.alerts.setMessage('데이터 로드에 실패했습니다.', 'error');
+            });
     }
 
     writePost () {
-        this.router.navigate(['/write-post', 'client']);
+      if (sessionStorage.getItem('id')) {
+          this.router.navigate(['/write-post', 'client']);
+      } else {
+          this.router.navigate(['/login']);
+      }
     }
 
     selectPosting(index: number) {

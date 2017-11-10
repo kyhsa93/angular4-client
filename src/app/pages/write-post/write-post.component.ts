@@ -30,7 +30,7 @@ export class WritePostComponent implements OnInit{
 
     submit () {
         if (!this.category) {
-            this.alerts.setMessage('Please select category', 'error');
+            this.alerts.setMessage('게시물 카테고리를 선택해주세요.', 'error');
         } else {
             this
             var postData = [
@@ -40,10 +40,10 @@ export class WritePostComponent implements OnInit{
             ];
             this.http.post('http://localhost:5000/write-post', postData).
                 subscribe(response => {
-                    this.alerts.setMessage('Submit success', 'success');
+                    this.alerts.setMessage('저장되었습니다.', 'success');
                     this.router.navigate(['/' + this.category]);
                 }, error => {
-                    this.alerts.setMessage('Submit fail', 'error');
+                    this.alerts.setMessage('저장하지 못했습니다.', 'error');
                 });
         }
     }

@@ -26,7 +26,7 @@ export class ConfirmPasswordComponent {
           subscribe(response => {
               this.confirmed.emit(true);
           }, error => {
-              this.alerts.setMessage('Please check your password', 'error');
+              this.alerts.setMessage('비밀번호를 확인해 주세요.', 'error');
               this.confirmed.emit(false);
               console.log('password confirm error: ', error);
           });

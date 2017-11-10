@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertsService } from 'angular-alert-module';
 
 @Component({
     selector: 'navigation',
@@ -8,12 +7,21 @@ import { AlertsService } from 'angular-alert-module';
     styleUrls: ['./navigation.component.css']
 })
 
-export class NavigationComponent {
+export class NavigationComponent implements OnInit{
+
+    private buttonFlag: boolean = false;
 
     constructor (
         private router: Router,
-        private alerts: AlertsService
     ) {}
+
+    ngOnInit () {
+        if (sessionStorage.getItem('id')) {
+            this.buttonFlag = true;
+        } else {
+          this.buttonFlag = false;
+        }
+    }
 
     /**
      * @type {function} move to client page
@@ -55,7 +63,11 @@ export class NavigationComponent {
      */
     logout() {
         sessionStorage.clear();
+        this.router.navigate(['/home']);
+        this.buttonFlag = false;
+    }
+
+    login () {
         this.router.navigate(['/login']);
-        this.alerts.setMessage('Logout success','success');
     }
 };

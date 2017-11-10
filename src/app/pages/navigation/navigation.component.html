@@ -11,12 +11,17 @@
   <button (click)="database()" style="border-width: 0; height: 100%; padding: 0; width: 10%;">
     DataBase
   </button>
-  <div class="navigation-page-right">
+  <div class="navigation-page-right" *ngIf="buttonFlag">
     <button (click)="myPage()" style="border-width: 0; height: 100%; padding: 0; width: 45%;">
       My page
     </button>
     <button (click)="logout()" style="border-width: 0; height: 100%; padding: 0; width: 45%;">
       Logout
+    </button>
+  </div>
+  <div class="navigation-page-right" *ngIf="!buttonFlag">
+    <button (click)="login()" style="border-width: 0; float: right; height: 100%; padding: 0; margin-right: 10%; width: 45%;">
+      Sign in
     </button>
   </div>
 </div>

@@ -38,11 +38,10 @@ export class LoginComponent implements OnInit {
         };
         this.http.post('http://localhost:5000/login', loginData).
             subscribe(response => {
-                this.alerts.setMessage('Login success','success');
                 sessionStorage.setItem('id', this.loginId);
                 this.router.navigate(['/home']);
             }, error => {
-                this.alerts.setMessage('Login fail', 'error');
+                this.alerts.setMessage('로그인에 실패했습니다.', 'error');
                 console.log('Login error: ', error);
             });
     }
