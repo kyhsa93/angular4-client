@@ -5,7 +5,7 @@ import { LoginComponent } from './pages/login/index';
 import { SignUpComponent } from './pages/sign-up/index';
 import { HomeComponent } from './pages/home/index';
 import { MyPageComponent } from './pages/my-page/index';
-import { WritePostComponent } from './pages/write-post/index';
+import { WriteContentComponent } from './pages/write-content/index';
 import { PageNotFoundComponent } from './pages/page-not-found/index';
 
 const appRoutes: Routes = [
@@ -13,7 +13,7 @@ const appRoutes: Routes = [
     { path: 'sign-up', component: SignUpComponent },
     { path: 'home', component: HomeComponent },
     { path: 'my-page', component: MyPageComponent },
-    { path: 'write-post/:number', component: WritePostComponent },
+    { path: 'write-content/:number', component: WriteContentComponent },
     { path: '',   redirectTo: 'home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
   ];

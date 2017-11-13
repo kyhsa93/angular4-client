@@ -1,9 +1,9 @@
 <div class="side-menu-page">
   <table style="border-collapse: collapse; border-right: 1px solid black; width: 100%;">
-    <tr *ngFor="let post of postList; let index = index"
-      (click)="selectPosting(index)">
+    <tr *ngFor="let content of contentsList; let index = index"
+      (click)="selectContent(index)">
       <td style="border-bottom: 1px solid black; padding: 5% 0; text-align: center;">
-        {{post.title}}
+        {{content.title}}
       </td>
     </tr>
   </table>

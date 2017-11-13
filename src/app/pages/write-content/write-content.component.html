@@ -1,13 +1,13 @@
-<div class="write-post-page">
+<div class="write-content-page">
   <navigation></navigation>
-  <form class="write-post-form">
+  <form class="write-content-form">
     <input
       type="text"
       placeholder="Please insert title"
       name="text"
       [(ngModel)]="title"
-      class="write-post-input">
-    <select name="category" [(ngModel)]="category" class="write-post-select">
+      class="write-content-input">
+    <select name="category" [(ngModel)]="category" class="write-content-select">
       <option value="client">
         client
       </option>
@@ -32,7 +32,7 @@
     <a *ngIf="categoryError" style="color: red; margin-left: 60%;">
       게시물의 카테고리를 선택하세요.
     </a>
-    <button (click)="submit()" class="write-post-button">
+    <button (click)="submit()" class="write-content-button">
       Submit
     </button>
   </form>

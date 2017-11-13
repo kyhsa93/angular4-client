@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
     private latestTitle: string = '';
     private latestCategory: string = '';
     private latestContent: string = '';
-    private postList = [];
+    private contentsList = [];
     private contentNumber: string = '0';
     private writerId: string = '';
     private userId: string = sessionStorage.getItem('id');
@@ -36,15 +36,15 @@ export class HomeComponent implements OnInit {
      * @type {fucntion}
      * @param {string} option
      */
-    writePost (option: string) {
+    writeContent(option: string) {
         if (!sessionStorage.getItem('id')) {
             this.router.navigate(['/login']);
             return;
         }
         if (option == 'modify') {
-            this.router.navigate(['/write-post', this.contentNumber]);
+            this.router.navigate(['/write-content', this.contentNumber]);
         } else if (option == 'write') {
-            this.router.navigate(['/write-post', 'write']);
+            this.router.navigate(['/write-content', 'write']);
         }
     }
 
@@ -52,12 +52,12 @@ export class HomeComponent implements OnInit {
      * @type {function}
      * @param {number} index
      */
-    selectPosting(index: number) {
-        this.latestTitle = this.postList[index].title;
-        this.latestContent = this.postList[index].content;
-        this.latestCategory = this.postList[index].category;
-        this.contentNumber = this.postList[index].seq;
-        this.writerId = this.postList[index].id;
+    selectContent(index: number) {
+        this.latestTitle = this.contentsList[index].title;
+        this.latestContent = this.contentsList[index].content;
+        this.latestCategory = this.contentsList[index].category;
+        this.contentNumber = this.contentsList[index].seq;
+        this.writerId = this.contentsList[index].id;
     }
 
     /**
@@ -65,11 +65,11 @@ export class HomeComponent implements OnInit {
      * @param {string} category 
      */
     changeCategory(category: string) {
-        this.http.get('http://localhost:5000/get-post-list/' + category).
+        this.http.get('http://localhost:5000/get-contents-list/' + category).
         map(response => {
             return response.json();
         }).subscribe(data => {
-            this.postList = data.sort((a, b) => {
+            this.contentsList = data.sort((a, b) => {
                 if (a.seq > b.seq) {
                     return -1;
                 }
@@ -78,7 +78,7 @@ export class HomeComponent implements OnInit {
                 }
                 return 0;
             });
-            this.selectPosting(0);
+            this.selectContent(0);
         }, error => {
             console.log('home component ngOnInit', error);
         });

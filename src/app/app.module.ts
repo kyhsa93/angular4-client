@@ -10,7 +10,7 @@ import { LoginComponent } from './pages/login/index';
 import { HomeComponent } from './pages/home/index';
 import { MyPageComponent } from './pages/my-page/index';
 import { SignUpComponent } from './pages/sign-up/index';
-import { WritePostComponent } from './pages/write-post/index';
+import { WriteContentComponent } from './pages/write-content/index';
 import { PageNotFoundComponent } from './pages/page-not-found/index';
 import { ConfirmPasswordComponent } from './pages/confirm-password/index';
 
@@ -27,7 +27,7 @@ import { SideMenuComponent } from './pages/side-menu/index';
         NavigationComponent,
         SideMenuComponent,
         SignUpComponent,
-        WritePostComponent,
+        WriteContentComponent,
         ConfirmPasswordComponent
     ],
     imports: [

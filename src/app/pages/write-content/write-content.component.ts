@@ -3,11 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Http } from '@angular/http';
 
 @Component({
-    templateUrl: './write-post.component.html',
-    styleUrls: ['./write-post.component.css']
+    templateUrl: './write-content.component.html',
+    styleUrls: ['./write-content.component.css']
 })
 
-export class WritePostComponent implements OnInit{
+export class WriteContentComponent implements OnInit{
 
     private activatedPage: string = '';
     private title: string = '';
@@ -39,7 +39,7 @@ export class WritePostComponent implements OnInit{
                             this.modify = true;
                         }
                     }, error => {
-                        console.log('write post ngOnInit', error);
+                        console.log('write content ngOnInit', error);
                     });
             }
         });
@@ -47,7 +47,7 @@ export class WritePostComponent implements OnInit{
 
     responseError (error) {
         this.saveError = true;
-        console.log('write post error', error);
+        console.log('write content error', error);
     }
 
     submit () {
@@ -70,7 +70,7 @@ export class WritePostComponent implements OnInit{
                 }, this.responseError)
         } else {
             contentData.push(sessionStorage.getItem('id'));
-            this.http.post('http://localhost:5000/write-post', contentData).
+            this.http.post('http://localhost:5000/write-content', contentData).
                 subscribe(response => {
                     this.saveError = false;
                     this.categoryError = false;
