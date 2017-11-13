@@ -1,5 +1,8 @@
 <div>
-  <navigation></navigation>
+  <navigation
+    (category)="changeCategory($event)"
+    (logoutFlag)="logout($event)">
+  </navigation>
   <side-menu class="side-menu"
     [postList]="postList"
     (selected)="selectPosting($event)">
@@ -8,7 +11,8 @@
     <button (click)="writePost('write')">
       게시물 작성
     </button>
-    <button *ngIf="writerId == userId" (click)="writePost('modify')">
+    <button *ngIf="writerId == userId"
+      (click)="writePost('modify')">
       게시물 수정
     </button>
     <div>

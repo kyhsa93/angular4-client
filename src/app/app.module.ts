@@ -9,9 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './pages/login/index';
 import { HomeComponent } from './pages/home/index';
 import { MyPageComponent } from './pages/my-page/index';
-import { ClientComponent } from './pages/client/index';
-import { ServerComponent } from './pages/server/index';
-import { DataBaseComponent } from './pages/database/index';
 import { SignUpComponent } from './pages/sign-up/index';
 import { WritePostComponent } from './pages/write-post/index';
 import { PageNotFoundComponent } from './pages/page-not-found/index';
@@ -26,9 +23,6 @@ import { SideMenuComponent } from './pages/side-menu/index';
         LoginComponent,
         HomeComponent,
         MyPageComponent,
-        ClientComponent,
-        ServerComponent,
-        DataBaseComponent,
         PageNotFoundComponent,
         NavigationComponent,
         SideMenuComponent,

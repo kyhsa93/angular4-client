@@ -66,7 +66,7 @@ export class WritePostComponent implements OnInit{
                 subscribe(response => {
                     this.saveError = false;
                     this.categoryError = false;
-                    this.router.navigate(['/' + this.category]);
+                    this.router.navigate(['/home']);
                 }, this.responseError)
         } else {
             contentData.push(sessionStorage.getItem('id'));
@@ -74,7 +74,7 @@ export class WritePostComponent implements OnInit{
                 subscribe(response => {
                     this.saveError = false;
                     this.categoryError = false;
-                    this.router.navigate(['/' + this.category]);
+                    this.router.navigate(['/home']);
                 }, this.responseError);
         }
     }
