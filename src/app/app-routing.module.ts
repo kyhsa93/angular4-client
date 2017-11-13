@@ -19,7 +19,7 @@ const appRoutes: Routes = [
     { path: 'client', component: ClientComponent },
     { path: 'server', component: ServerComponent },
     { path: 'database', component: DataBaseComponent },
-    { path: 'write-post/:page', component: WritePostComponent },
+    { path: 'write-post/:number', component: WritePostComponent },
     { path: '',   redirectTo: 'home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
   ];

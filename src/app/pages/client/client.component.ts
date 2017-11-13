@@ -16,6 +16,7 @@ export class ClientComponent {
     private latestContent: string = '';
     private postList = [];
     private listIndex: number = 1;
+    private contentNumber: string = '0';
 
     constructor (
         private router: Router,
@@ -31,29 +32,40 @@ export class ClientComponent {
             map(response => {
                 return response.json();
             }).subscribe(data => {
-                data.map(item => {
-                    item.seq = this.listIndex++;
+                this.postList = data.sort((a, b) => {
+                    if (a.seq > b.seq) {
+                        return -1;
+                    }
+                    if (a.seq < b.seq) {
+                        return 1;
+                    }
+                    return 0;
                 });
-                this.postList = data.reverse();
                 this.latestTitle = this.postList[0].title;
                 this.latestCategory = this.postList[0].category;
                 this.latestContent = this.postList[0].content;
+                this.contentNumber = this.postList[0].seq;
             }, error => {
                 console.log('client component ngOnInit', error);
             });
     }
 
-    writePost () {
-      if (sessionStorage.getItem('id')) {
-          this.router.navigate(['/write-post', 'client']);
-      } else {
-          this.router.navigate(['/login']);
-      }
+    writePost (option: string) {
+        if (!sessionStorage.getItem('id')) {
+            this.router.navigate(['/login']);
+            return;
+        }
+        if (option == 'modify') {
+            this.router.navigate(['/write-post', this.contentNumber]);
+        } else if (option == 'write') {
+            this.router.navigate(['/write-post', 'write']);
+        }
     }
 
     selectPosting(index: number) {
         this.latestTitle = this.postList[index].title;
         this.latestContent = this.postList[index].content;
         this.latestCategory = this.postList[index].category;
+        this.contentNumber = this.postList[index].seq;
     }
 };
