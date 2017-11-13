@@ -8,7 +8,7 @@
     <button (click)="writePost('write')">
       게시물 작성
     </button>
-    <button (click)="writePost('modify')">
+    <button *ngIf="writerId == userId" (click)="writePost('modify')">
       게시물 수정
     </button>
     <div>

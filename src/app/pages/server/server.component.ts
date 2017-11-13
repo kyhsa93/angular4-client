@@ -17,6 +17,8 @@ export class ServerComponent {
     private postList = [];
     private listIndex: number = 1;
     private contentNumber: string = '0';
+    private writerId: string = '';
+    private userId: string = sessionStorage.getItem('id');
 
     constructor (
         private router: Router,
@@ -25,7 +27,7 @@ export class ServerComponent {
     ) {}
 
     /**
-     * @type {function} if login data does not exists in sessionStorage navigate login page
+     * @type {function}
      */
     ngOnInit () {
         this.http.get('http://localhost:5000/get-post-list/server').
@@ -45,8 +47,9 @@ export class ServerComponent {
                 this.latestCategory = this.postList[0].category;
                 this.latestContent = this.postList[0].content;
                 this.contentNumber = this.postList[0].seq;
+                this.writerId = this.postList[0].id;
             }, error => {
-                console.log('client component ngOnInit', error);
+                console.log('server component ngOnInit', error);
             });
     }
 
@@ -67,5 +70,6 @@ export class ServerComponent {
         this.latestContent = this.postList[index].content;
         this.latestCategory = this.postList[index].category;
         this.contentNumber = this.postList[index].seq;
+        this.writerId = this.postList[index].id;
     }
 };

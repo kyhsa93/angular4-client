@@ -69,6 +69,7 @@ export class WritePostComponent implements OnInit{
                     this.router.navigate(['/' + this.category]);
                 }, this.responseError)
         } else {
+            contentData.push(sessionStorage.getItem('id'));
             this.http.post('http://localhost:5000/write-post', contentData).
                 subscribe(response => {
                     this.saveError = false;

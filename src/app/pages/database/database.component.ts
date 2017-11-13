@@ -17,6 +17,8 @@ export class DataBaseComponent implements OnInit {
     private postList = [];
     private listIndex: number = 1;
     private contentNumber: string = '0';
+    private writerId: string = '';
+    private userId: string = sessionStorage.getItem('id');
 
     constructor (
         private router: Router,
@@ -25,7 +27,7 @@ export class DataBaseComponent implements OnInit {
     ) {}
 
     /**
-     * @type {function} if login data does not exists in sessionStorage navigate login page
+     * @type {function}
      */
     ngOnInit () {
         this.http.get('http://localhost:5000/get-post-list/database').
@@ -44,6 +46,8 @@ export class DataBaseComponent implements OnInit {
                 this.latestTitle = this.postList[0].title;
                 this.latestCategory = this.postList[0].category;
                 this.latestContent = this.postList[0].content;
+                this.contentNumber = this.postList[0].seq;
+                this.writerId = this.postList[0].id;
             }, error => {
                 console.log('database component ngOnInit', error);
             });
@@ -65,5 +69,6 @@ export class DataBaseComponent implements OnInit {
         this.latestContent = this.postList[index].content;
         this.latestCategory = this.postList[index].category;
         this.contentNumber = this.postList[index].seq;
+        this.writerId = this.postList[index].id;
     }
 };

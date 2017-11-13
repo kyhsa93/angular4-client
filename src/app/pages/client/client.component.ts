@@ -17,6 +17,8 @@ export class ClientComponent {
     private postList = [];
     private listIndex: number = 1;
     private contentNumber: string = '0';
+    private writerId: string = '';
+    private userId: string = sessionStorage.getItem('id');
 
     constructor (
         private router: Router,
@@ -45,6 +47,7 @@ export class ClientComponent {
                 this.latestCategory = this.postList[0].category;
                 this.latestContent = this.postList[0].content;
                 this.contentNumber = this.postList[0].seq;
+                this.writerId = this.postList[0].id;
             }, error => {
                 console.log('client component ngOnInit', error);
             });
@@ -67,5 +70,6 @@ export class ClientComponent {
         this.latestContent = this.postList[index].content;
         this.latestCategory = this.postList[index].category;
         this.contentNumber = this.postList[index].seq;
+        this.writerId = this.postList[index].id;
     }
 };
