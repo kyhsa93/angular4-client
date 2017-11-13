@@ -1,5 +1,6 @@
 .side-menu-page {
   border: 1px solid black;
   height: 90vh;
+  overflow: auto;
   width: 100%;
 }
