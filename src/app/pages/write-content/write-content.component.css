@@ -10,13 +10,12 @@
 .write-content-input {
   height: 5vh;
   width: 63%;
-  padding: 0;
 }
 
 .write-content-select {
+  float: right;
   height: 5vh;
   width: 30%;
-  margin: 0 3%;
 }
 
 .write-content-button {
