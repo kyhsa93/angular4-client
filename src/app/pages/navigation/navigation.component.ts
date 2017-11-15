@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
 })
 
 export class NavigationComponent implements OnInit{
+
+    @Output() category = new EventEmitter();
+    @Output() logoutFlag = new EventEmitter();
 
     private buttonFlag: boolean = false;
 
@@ -24,49 +27,57 @@ export class NavigationComponent implements OnInit{
     }
 
     /**
-     * @type {function} move to client page
+     * @type {function}
      */
     client() {
-        this.router.navigate(['/client']);
+        this.router.navigate(['/home']);
+        this.category.emit('client');
     }
 
     /**
-     * @type {function} move to server page
+     * @type {function}
      */
     server() {
-        this.router.navigate(['/server']);
+        this.router.navigate(['/home']);
+        this.category.emit('server');
     }
 
     /**
-     * @type {function} move to database page
+     * @type {function}
      */
     database() {
-        this.router.navigate(['/database']);
+        this.router.navigate(['/home']);
+        this.category.emit('database');
     }
 
     /**
-     * @type {function} move to home page
+     * @type {function}
      */
     home() {
         this.router.navigate(['/home']);
+        this.category.emit('home');
     }
 
     /**
-     * @type {function} move to mypage
+     * @type {function}
      */
     myPage() {
         this.router.navigate(['/my-page']);
     }
 
     /**
-     * @type {function} logout button clicked
+     * @type {function}
      */
     logout() {
         sessionStorage.clear();
         this.router.navigate(['/home']);
         this.buttonFlag = false;
+        this.logoutFlag.emit(true);
     }
 
+    /**
+     * @type {function}
+     */
     login () {
         this.router.navigate(['/login']);
     }

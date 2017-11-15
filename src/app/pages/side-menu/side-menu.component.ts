@@ -7,12 +7,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 
 export class SideMenuComponent {
-    @Input() postList;
+    @Input() contentsList;
     @Output() selected = new EventEmitter();
 
     constructor () {}
 
-    selectPosting (index: number) {
+    selectContent(index: number) {
         this.selected.emit(index);
     }
 };
