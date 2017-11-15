@@ -12,7 +12,7 @@ export class SignUpComponent {
     private id: string = '';
     private password: string = '';
     private name: string = '';
-    private signUpError: boolean = false;
+    private errorMessage: string = '';
 
     constructor (
         private http: Http,
@@ -27,10 +27,13 @@ export class SignUpComponent {
         };
         this.http.post('http://localhost:5000/sign-up', signUpData).
             subscribe(response => {
-                this.signUpError = false;
                 this.router.navigate(['/login']);
             }, error => {
-                this.signUpError = true;
+                if (error._body == 'existed') {
+                    this.errorMessage = '중복된 ID 입니다.'
+                    return;
+                }
+                this.errorMessage = '회원가입에 실패했습니다.';
                 console.log('sign up component ngOnInit', error);
             });
     }
