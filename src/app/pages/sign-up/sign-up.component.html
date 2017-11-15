@@ -18,10 +18,16 @@
       placeholder="Please insert your Name"
       [(ngModel)]="name"
       class="sign-up-input">
+    <input
+      name="phone"
+      type="tel"
+      placeholder="Please insert your Phone numeber"
+      [(ngModel)]="phone"
+      class="sign-up-input">
     <button (click)="signUp()" class="sign-up-button">
       Sign Up
     </button>
-    <div style="color: red; margin-left: 30%;">
+    <div style="color: red; margin-left: 25%;">
       {{errorMessage}}
     </div>
   </form>

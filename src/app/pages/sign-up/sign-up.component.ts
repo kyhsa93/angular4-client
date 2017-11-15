@@ -12,6 +12,7 @@ export class SignUpComponent {
     private id: string = '';
     private password: string = '';
     private name: string = '';
+    private phone: string = '';
     private errorMessage: string = '';
 
     constructor (
@@ -20,10 +21,27 @@ export class SignUpComponent {
     ) {}
 
     signUp () {
+        if (this.id == '') {
+            this.errorMessage = 'ID를 입력하세요.';
+            return;
+        }
+        if (this.password == '') {
+            this.errorMessage = 'Password를 입력하세요';
+            return;
+        }
+        if (this.name == '') {
+            this.errorMessage = '이름을 입력하세요.';
+            return;
+        }
+        if (!this.phone.match(/^010-\d{4}-\d{4}$/)) {
+            this.errorMessage = '잘못된 전화번호 입니다.';
+            return;
+        }
         var signUpData = {
             'id': this.id,
             'password': this.password,
-            'name': this.name
+            'name': this.name,
+            'phone': this.phone
         };
         this.http.post('http://localhost:5000/sign-up', signUpData).
             subscribe(response => {

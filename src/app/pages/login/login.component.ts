@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     ) {}
 
     /**
-     * @type {function} clear session when login data exists in sessionStorage
+     * @type {function}
      */
     ngOnInit () {
         if (sessionStorage.getItem('id')) {
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     }
 
     /**
-     * @type {fucntion} login button clicked
+     * @type {fucntion}
      */
     login () {
         var loginData = {
