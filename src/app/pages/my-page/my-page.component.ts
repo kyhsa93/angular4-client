@@ -12,6 +12,7 @@ export class MyPageComponent implements OnInit{
     private id: string = '';
     private password: string = '';
     private name: string = '';
+    private phone: string = '';
     private date: string = '';
     private confirmed: boolean = false;
     private saveError: boolean = false;
@@ -22,7 +23,7 @@ export class MyPageComponent implements OnInit{
     ) {}
 
     /**
-     * @type {function} if login data does not exists in sessionStorage navigate login page
+     * @type {function}
      */
     ngOnInit () {
         if (!sessionStorage.getItem('id')) {
@@ -34,6 +35,7 @@ export class MyPageComponent implements OnInit{
                 this.id = data.json()[0].id;
                 this.password = data.json()[0].password;
                 this.name = data.json()[0].name;
+                this.phone = data.json()[0].phone;
                 this.date = data.json()[0].sign_up_date;
             }, error => {
                 console.log('my page component ngOnInit', error);
