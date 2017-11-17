@@ -6,6 +6,7 @@ import { SignUpComponent } from './pages/sign-up/index';
 import { HomeComponent } from './pages/home/index';
 import { MyPageComponent } from './pages/my-page/index';
 import { WriteContentComponent } from './pages/write-content/index';
+import { FindAccountComponent } from './pages/find-account/index';
 import { PageNotFoundComponent } from './pages/page-not-found/index';
 
 const appRoutes: Routes = [
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'my-page', component: MyPageComponent },
     { path: 'write-content/:number', component: WriteContentComponent },
+    { path: 'find-account', component: FindAccountComponent },
     { path: '',   redirectTo: 'home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
   ];

@@ -13,6 +13,7 @@ import { SignUpComponent } from './pages/sign-up/index';
 import { WriteContentComponent } from './pages/write-content/index';
 import { PageNotFoundComponent } from './pages/page-not-found/index';
 import { ConfirmPasswordComponent } from './pages/confirm-password/index';
+import { FindAccountComponent } from './pages/find-account/index';
 
 import { NavigationComponent } from './pages/navigation/index';
 import { SideMenuComponent } from './pages/side-menu/index';
@@ -28,7 +29,8 @@ import { SideMenuComponent } from './pages/side-menu/index';
         SideMenuComponent,
         SignUpComponent,
         WriteContentComponent,
-        ConfirmPasswordComponent
+        ConfirmPasswordComponent,
+        FindAccountComponent
     ],
     imports: [
         BrowserModule,

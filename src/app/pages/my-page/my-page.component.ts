@@ -30,7 +30,7 @@ export class MyPageComponent implements OnInit{
             this.router.navigate(['/home']);
             return;
         }
-        this.http.get('http://localhost:5000/my-page-data/' + sessionStorage.getItem('id')).
+        this.http.get('http://localhost:5000/select-sign-up-data/' + sessionStorage.getItem('id')).
             subscribe(data => {
                 this.id = data.json()[0].id;
                 this.name = data.json()[0].name;

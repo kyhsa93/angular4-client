@@ -1,0 +1,19 @@
+.find-account-page {
+height: 100%;
+width: 100%
+}
+
+.find-account-form {
+margin: 15% 40%;
+}
+
+.find-account-input {
+height: 5vh;
+width: 98%;
+padding: 0;
+}
+
+.find-account-button {
+height: 5vh;
+width: 99%;
+}

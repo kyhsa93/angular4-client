@@ -1,0 +1,27 @@
+<div class="find-account-page">
+  <navigation></navigation>
+  <form class="find-account-form">
+    <h2>ID/Password 찾기</h2>
+    <input
+      type="text"
+      name="name"
+      placeholder="Please insert your name"
+      [(ngModel)]="name"
+      class="find-account-input">
+    <input
+      type="text"
+      name="phone"
+      placeholder="Please insert your phone"
+      [(ngModel)]="phone"
+      class="find-account-input">
+    <button (click)="submit()" class="find-account-button">
+      Submit
+    </button>
+    <div *ngIf="!findAccountSuccess" style="color: red; margin-left: 30%;">
+      {{errorMessage}}
+    </div>
+    <div *ngIf="findAccountSuccess" style="margin: 0 20%;">
+      ID : {{id}}, Password : {{password}}
+    </div>
+  </form>
+</div>
