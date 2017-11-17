@@ -29,7 +29,6 @@
       <input
         type="text"
         name="phone"
-        readonly
         [(ngModel)]="phone"
         class="my-page-input">
       Sign Up Date
@@ -42,8 +41,8 @@
     <button (click)="submit()" class="my-page-button">
       Submit
     </button>
-    <a *ngIf="saveError" style="color: red; margin-left: 30%;">
-      저장하지 못했습니다.
-    </a>
+    <div style="color: red; margin-left: 30%;">
+      {{errorMessage}}
+    </div>
   </form>
 </div>
